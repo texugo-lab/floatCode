@@ -1,0 +1,11 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Float Run",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "clear; gcc main.c -o c:/mingw/bin/floatCode; floatCode ${fileBasename}"
+    }
+  ]
+}
