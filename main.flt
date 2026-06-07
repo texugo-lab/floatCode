@@ -1,25 +1,3 @@
-nmbr number = 2.5
-strng string = "string"
+nmbr number = (32767 + 3)
+strng string = "aasaasdada"
 bool boolean = true
-vec2 vector = {0, 0}
-
-fn nmbr numberFunction(nmbr arg1) = {
-
-   nmbr arr[5] = {0, 1, 2, 3, 4}
-   # comments- bla bla bla
-   #-
-   	comments- bla bla bla
-   -#
-
-   for 0..10{
-     	continue
-   }
-
-   if arr[0] == 0{
-     	break
-   }
-
-   foreach i in arr{
-     	print("array[%s] = ")
-   }
-}
