@@ -21,7 +21,8 @@ void runCode(char* fileName){
    }
 
    while (fgets(buffer, 0x7ff, pFile) != NULL){
-      (void)tokenize(buffer);
+      token* tokens = tokenize(buffer);
+      parse(tokens);
    }
 
 

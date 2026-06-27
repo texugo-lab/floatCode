@@ -1,3 +1,7 @@
-nmbr number = (32767 + 3)
-strng string = "aasaasdada"
+nmbr number = (2.5 + 3)
+strng string = "kahsfhaf"
 bool boolean = true
+
+fn nmbr numberFunction() = {
+	
+}

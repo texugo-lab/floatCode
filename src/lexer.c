@@ -51,8 +51,7 @@ token* tokenize(char* string){
       bool vec2 = string[i] == 'v' && string[i + 1] == 'e' && string[i + 2] == 'c' && string[i + 3] == '2' && string[i + 4] == ' ';
       bool isString = string[i] == 's' && string[i + 1] == 't' && string[i + 2] == 'r' && string[i + 3] == 'n' && string[i + 4] == 'g' && string[i + 5] == ' ';
       bool fn = string[i] == 'f' && string[i + 1] == 'n' && string[i + 2] == ' ';
-      bool isBoolValue = string[i] == 't' && string[i + 1] == 'r' && string[i + 2] == 'u' && string[i + 3] == 'e' ||
-                       string[i] == 'f' && string[i + 1] == 'a' && string[i + 2] == 'l' && string[i + 3] == 's' && string[i + 4] == 'e';
+      bool isBoolValue = string[i] == 't' && string[i + 1] == 'r' && string[i + 2] == 'u' && string[i + 3] == 'e' || string[i] == 'f' && string[i + 1] == 'a' && string[i + 2] == 'l' && string[i + 3] == 's' && string[i + 4] == 'e';
 
       if(string[i] == ' '){
          continue;
@@ -68,40 +67,43 @@ token* tokenize(char* string){
          char token_str[2] = {string[i], '\0'};
          appendToken(tokens, OPERATOR, token_str);
       }
-      else if(needleInHaystack(string[i], "0123456789.,")){
+      else if(needleInHaystack(string[i], "0123456789.")){
          int j = i;
-
          for(; j <= strlen(string) - 1; j++){ if(!needleInHaystack(string[j], "0123456789.")){j--; break;}}
 
-         char numberLiteral[0];
+         char numberLiteral[j - i + 1];
          for(int k = i; k <= j; k++){
             numberLiteral[k - i] = string[k];
          }
+
+         numberLiteral[j - i + 1] = '\0';
          appendToken(tokens, NUMBER, numberLiteral);
          i = j;
       }
       else if(isBoolValue){
-         char trueKeyword[5] = {string[i], string[i + 1], string[i + 2], string[i + 3]};
-         char falseKeyword[6] = {string[i], string[i + 1], string[i + 2], string[i + 3], string[i + 4]};
+         char trueKeyword[5] = {string[i], string[i + 1], string[i + 2], string[i + 3], '\0'};
+         char falseKeyword[6] = {string[i], string[i + 1], string[i + 2], string[i + 3], string[i + 4], '\0'};
 
          if(string[i] == 'f' && string[i + 1] == 'a' && string[i + 2] == 'l' && string[i + 3] == 's' && string[i + 4] == 'e'){
             appendToken(tokens, KEYWORD, falseKeyword);
+            i += 5;
             continue;
          }
+         i += 4;
          appendToken(tokens, KEYWORD, trueKeyword);
       }
       else if(nmbr || isBool || vec2){
-         char variable[5] = {string[i], string[i + 1], string[i + 2], string[i + 3]};
+         char variable[5] = {string[i], string[i + 1], string[i + 2], string[i + 3], '\0'};
          appendToken(tokens, VARIABLE, variable);
          i += 4;
       }
       else if(isString){
-         char variable[6] = {string[i], string[i + 1], string[i + 2], string[i + 3], string[i + 4]};
+         char variable[6] = {string[i], string[i + 1], string[i + 2], string[i + 3], string[i + 4], '\0'};
          appendToken(tokens, VARIABLE, variable);
          i += 5;
       }
       else if(fn){
-         char variable[6] = {string[i], string[i + 1], string[i + 2]};
+         char variable[3] = {string[i], string[i + 1], '\0'};
          appendToken(tokens, VARIABLE, variable);
          i += 2;
       }
@@ -110,7 +112,7 @@ token* tokenize(char* string){
 
          for(; j <= strlen(string) - 1; j++){ if(string[j] == '\"'){break;}}
 
-         char stringLiteral[0];
+         char stringLiteral[j - i + 1];
          for(int k = i; k <= j; k++){
             stringLiteral[k - i] = string[k];
          }
@@ -122,12 +124,22 @@ token* tokenize(char* string){
       else if(needleInHaystack(string[i], "\n\t")){
          continue;
       }
-      else{
-         
+      else if(needleInHaystack(string[i], "0123456789abcdefghijklmnopqrstuvwxyz")){
+         int j = i;
+         for(; j <= strlen(string); j++){ if(!needleInHaystack(string[j], "0123456789abcdefghijklmnopqrstuvwxyz")){break;}}
+
+         char word[j - i];
+         for(int k = i; k <= j; k++){
+            word[k - i] = string[k];
+         }
+
+         word[j - i] = '\0';
+         appendToken(tokens, NAME, word);
+         i = j - 1;
       }
    }
    for(int i = 0; i < MAX_TOKENS; i++){
-      if(tokens[i].token) printf("%d->'%s'", tokens[i].type, tokens[i].token);
+      if(tokens[i].token) printf("%s\n", tokens[i].token);
    }
    printf("\n");
 
