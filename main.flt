@@ -1,7 +1,7 @@
-nmbr number = (2.5 + 3)
-strng string = "kahsfhaf"
-bool boolean = true
-
-fn nmbr numberFunction() = {
-	
-}
+2+2
+2-2
+2*2
+2/2
+2^2
+4//2
+4!
