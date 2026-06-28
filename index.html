@@ -6,122 +6,41 @@
 	<title>Float Code</title>
 	<link rel="icon" type="images/png" href="images/icon.png">
 	<link rel="stylesheet" href="style.css">
+	<script src="index.js"></script>
 
 	<!-- FIRA CODE + GEIST MONO -->
 
 	<style>@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Geist+Mono:ital,wght@0,100..900;1,100..900&display=swap');</style>
 </head>
 <body>
-	<!-- JAVA SCRIPT -->
-	<script src="index.js"></script>
+	<nav>
+		<ul class="sidebar">
+			<li onclick='toggleSidebar("-260px")'><a id="hide">
+				<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#4d4d4d"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+			</a></li>
+			<li><a>Github</a></li>
+			<li><a>Download</a></li>
+		</ul>
+		<ul>
+			<li><a>Github</a></li>
+			<li><a>Download</a></li>
+			<li id="sidebarButton" onclick='toggleSidebar("0")'><a id="show">
+				<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#b3b3b3"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+			</a></li>
+		</ul>
+	</nav>
 
-	<div class="buttons">
-		<a id="github" href="https://github.com/texugo-lab/floatCode" ><button class="button">
-			<img class="icon" src="images/github.svg">
-		</button></a>
-		<a><button class="button">
-			<h5>
-				Download
-			</h5>
-		</button></a>
-		<a><button class="button"><h5>2</h5></button></a>
-	</div>
-
-	<header>
+	<main>
 		<br>
-		<h1>Float Code</h1>
-		<h4 style="text-align: center;" class="text-muted">A <b>C-POWERED</b> Programming Language</h4>
-	</header>
-	
-	<div class="line-break"></div>
-	
-	<h2 class="text">SYNTAX</h2>
-	<h3 class="text-muted">The syntax is very straight forward:</h3>
-	
-	<div class="line-break" style="
-		width: 60%;
-		margin-left: 20%;
-	"></div>
-	
-	<h3 class="codespace">
-		<h6 class="comment"># single-line comment</h6>
-		<h6 class="comment">#-</h6>
-		<h6 class="comment"><n class="tab"></n>multi-line comment</h6>
-		<h6 class="comment">-#</h6>
+		<!-- <a><button><img src="images/menu.svg"></button></a> -->
+	</main>
 
-		<h6>
-			<n class="keyword">fn</n>
-			<n class="variable">nmbr</n>
-			main<n class="keyword">()</n>
-		</h6>
-		<h6 class="keyword">{</h6>
-
-		
-		<h6>
-			<n class="tab"></n><n class="variable">nmbr</n>
-			<n>number =</n>
-			<n class="number">2.5</n>
-		</h6>
-		<h6 class="comment"><n class="tab"></n># ^------ THIS IS HOW YOU DEFINE A NUMBER</h6>
-
-		<h6 class="tab"></h6>
-
-		<h6>
-			<n class="tab"></n><n class="variable">strng</n>
-			<n>string =</n>
-			<n class="string">"Hello World!"</n><n>;</n><n class="comment">#  ';' <------ OPTIONAL</n>
-		</h6>
-		<h6 class="comment"><n class="tab"></n># ^------ THIS IS HOW YOU DEFINE A STRING</h6>
-
-		<h6 class="tab"></h6>
-		
-		<h6>
-			<n class="tab"></n><n class="variable">bool</n>
-			<n>boolean =</n>
-			<n class="boolean">true</n>
-		</h6>
-		<h6 class="comment"><n class="tab"></n># ^------ THIS IS HOW YOU DEFINE A BOOLEAN</h6>
-
-		<h6 class="tab"></h6>
-		
-		<h6>
-			<n class="tab"></n><n class="variable">vec2</n>
-			<n>vector2 =</n>
-			<n class="keyword">{</n><n class="number">0</n><n class="variable">,</n>
-			<n class="number">0</n><n class="keyword">}</n>
-		</h6>
-		<h6 class="comment"><n class="tab"></n># ^------ THIS IS HOW YOU DEFINE A VECTOR 2</h6>
-
-		<h6 class="tab"></h6>
-		
-		<h6>
-			<n class="tab"></n><n class="variable">vec3</n>
-			<n>vector3 =</n>
-			<n class="keyword">{</n><n class="number">0</n><n class="variable">,</n>
-			<n class="number">0</n><n class="variable">,</n>
-			<n class="number">0</n><n class="keyword">}</n>
-		</h6>
-		<h6 class="comment"><n class="tab"></n># ^------ THIS IS HOW YOU DEFINE A VECTOR 3</h6>
-
-		<h6 class="keyword">}</h6>
-	</h3>
-
-	<div class="line-break" style="
-		width: 60%;
-		margin-left: 20%;
-	"></div>
-
-	<h2 class="text">Installation</h2>
-
-	<h3 class="text-muted">You can install the source code, to compile it directly by going to the <a href="https://github.com/texugo-lab/floatCode">Github</a></h3>
-	<h3 class="text-muted">Or you can installing the compiler without needing to compile the <b>C</b> code:</h3>
-	<h3><a href="https://github.com/texugo-lab/floatCode">Download</a></h3>
-
-	<div class="line-break"></div>
-
-	<h2 class="text">Authors</h2>
-
-	<h3 class="text-muted"><a href="https://github.com/texugo-lab">@Texugo</a></h3>
+	<footer>
+		<button id="theme-switch" onclick="toggleMode()">
+			<svg id="dark-mode" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></svg>
+			<svg id="light-mode" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M565-395q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35Zm-226.5 56.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"/></svg>
+		</button>
+	</footer>
 </body>
 
 </html>
